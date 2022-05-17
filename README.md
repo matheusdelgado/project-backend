@@ -8,9 +8,8 @@
 
 ### Como executar:
 
-1. Crie um ambiente virtual para execução do projeto:
-`python3 -m venv && cd venv && source bin/activate`
-2. Faça as intalações dos pacotes utilizados: `cd requerients && pip3 install -r requeriments.txt`
+1. Crie um ambiente virtual para execução do projeto
+2. Faça as intalações dos pacotes utilizados: `cd requerients && pip3 install -r requeriments.txt && cd ..`
 3. Crie o banco de dados e faça a migração deles: `cd Subjects && python3 manage.py migrate`, irá crar um banco chamado `db.sqlite3`
 4. Na pasta Subjects rode o seguinte comando: `python3 manage.py runserver` e pronto.
 5. A API estará rodando na seguinte rota: `localhost:8000/subject/` ou `http://127.0.0.1:8000/subject/`
