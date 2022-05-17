@@ -1,5 +1,7 @@
 SHELL := /bin/bash
 
+include .env
+
 .PHONY: venv
 venv : \
     python3 -m venv $(VENV) && source $(BIN)/activate
@@ -9,7 +11,8 @@ install := \
     venv \
     $(BIN)/pip install -r $(requirements)/requirements.txt
 
-migrate: \
+.PHONY: migrate
+migrate := \
     $(PYTHON) manage.py makemigrations \
     $(PYTHON) manage.py migrate
 
@@ -18,7 +21,9 @@ test: \
     $(PYTHON) $(APP_DIR)/manage.py test application --verbosity=0 --parallel --failfast
 
 .PHONY: run
-run: \
-    $(PYTHON) $(APP_DIR)/manage.py runserver \
+run := \
+    $(PYTHON) manage.py runserver
 
-start: install migrate run
+.PHONY: start
+start := \
+    install migrate run
