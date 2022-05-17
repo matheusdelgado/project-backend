@@ -13,6 +13,10 @@ migrate: \
     $(PYTHON) manage.py makemigrations \
     $(PYTHON) manage.py migrate
 
+.PHONY: test
+test: \
+    $(PYTHON) $(APP_DIR)/manage.py test application --verbosity=0 --parallel --failfast
+
 .PHONY: run
 run: \
     $(PYTHON) $(APP_DIR)/manage.py runserver \
